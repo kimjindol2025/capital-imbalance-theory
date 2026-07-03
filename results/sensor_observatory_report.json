@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-03T16:59:08.691943",
+  "timestamp": "2026-07-03T17:36:51.198441",
   "sensors": {
     "total_signals": 21,
     "by_sensor": {
@@ -133,6 +133,45 @@
         "title": "LG 배터리 재료 발주",
         "importance": 80,
         "sensor": "procurement"
+      }
+    ]
+  },
+  "pressure": {
+    "AI": {
+      "count": 4,
+      "total_importance": 330,
+      "average_importance": 82.5,
+      "status": "Rising"
+    },
+    "Other": {
+      "count": 1,
+      "total_importance": 90,
+      "average_importance": 90.0,
+      "status": "Stable"
+    },
+    "Power": {
+      "count": 3,
+      "total_importance": 270,
+      "average_importance": 90.0,
+      "status": "Rising"
+    },
+    "Energy": {
+      "count": 2,
+      "total_importance": 170,
+      "average_importance": 85.0,
+      "status": "Stable"
+    }
+  },
+  "reservoirs": {
+    "total": 1,
+    "detected": [
+      {
+        "name": "AI",
+        "pressure": 330,
+        "signals": 4,
+        "confidence": 66.0,
+        "status": "Rising",
+        "description": "AI 기술 투자 증가 → 고강도 저수지"
       }
     ]
   }

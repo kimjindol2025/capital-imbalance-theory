@@ -195,32 +195,32 @@
         <div class="grid" id="metrics-grid">
             <div class="card">
                 <div class="card-title">AI/GPU</div>
-                <div class="card-value">0%</div>
-                <div class="card-percent">수집 중...</div>
+                <div class="card-value">⏳</div>
+                <div class="card-percent">로드 중...</div>
             </div>
             <div class="card">
                 <div class="card-title">Power/Energy</div>
-                <div class="card-value">0%</div>
-                <div class="card-percent">수집 중...</div>
+                <div class="card-value">⏳</div>
+                <div class="card-percent">로드 중...</div>
             </div>
             <div class="card">
                 <div class="card-title">Water</div>
-                <div class="card-value">0%</div>
-                <div class="card-percent">수집 중...</div>
+                <div class="card-value">⏳</div>
+                <div class="card-percent">로드 중...</div>
             </div>
             <div class="card">
                 <div class="card-title">Shipping</div>
-                <div class="card-value">0%</div>
-                <div class="card-percent">수집 중...</div>
+                <div class="card-value">⏳</div>
+                <div class="card-percent">로드 중...</div>
             </div>
             <div class="card">
                 <div class="card-title">Food</div>
-                <div class="card-value">0%</div>
-                <div class="card-percent">수집 중...</div>
+                <div class="card-value">⏳</div>
+                <div class="card-percent">로드 중...</div>
             </div>
             <div class="card">
                 <div class="card-title">Total Articles</div>
-                <div class="card-value" id="total-count">0</div>
+                <div class="card-value" id="total-count">⏳</div>
                 <div class="card-percent">기사</div>
             </div>
         </div>
@@ -258,7 +258,7 @@
         <div class="card" style="margin-bottom: 30px;">
             <div class="card-title">📋 최신 주간 리포트</div>
             <div id="report-content" style="color: #666; font-size: 13px; line-height: 1.6;">
-                <p>리포트 로드 중...</p>
+                <p>⏳ 리포트 로드 중...</p>
             </div>
         </div>
 
@@ -299,8 +299,12 @@
                     const cat = categories[i];
                     const value = imbalance[cat] || 0;
                     const valueEl = card.querySelector('.card-value');
+                    const percentEl = card.querySelector('.card-percent');
                     if (valueEl) {
                         valueEl.textContent = value.toFixed(1) + '%';
+                    }
+                    if (percentEl) {
+                        percentEl.textContent = data.current[cat] + '건';
                     }
                 }
 

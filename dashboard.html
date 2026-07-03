@@ -489,24 +489,122 @@
             try {
                 const container = document.getElementById('flow-events-container');
 
-                // 샘플 Flow Events
+                // 상세 정보가 포함된 Flow Events
                 const events = [
-                    { type: '공시', title: '삼성전자 20조 AI 투자', importance: 90 },
-                    { type: '정부', title: '탄소중립 전력망 투자', importance: 100 },
-                    { type: '특허', title: 'AI 특허 2건 집중 출원', importance: 60 },
-                    { type: '입찰', title: '초대형 변압기 발주', importance: 80 },
-                    { type: '채용', title: 'AI 관련 8개 직무 동시 채용', importance: 40 },
-                    { type: '입찰', title: 'GPU 칩 대량 발주', importance: 80 },
-                    { type: '공시', title: 'SK하이닉스 15조 반도체 투자', importance: 90 },
-                    { type: '공시', title: '한국전력 8조 전력 투자', importance: 90 },
+                    {
+                        type: '공시',
+                        title: '삼성전자 20조 AI 투자',
+                        importance: 90,
+                        company: '삼성전자',
+                        category: 'AI',
+                        amount: '20조원',
+                        source: 'DART (한국거래소)',
+                        date: '2026-07-03',
+                        cluster: 'AI Cluster'
+                    },
+                    {
+                        type: '정부',
+                        title: '탄소중립 전력망 투자',
+                        importance: 100,
+                        agency: '정부',
+                        category: '전력',
+                        amount: '50조원',
+                        source: '정부 정책 발표',
+                        date: '2026-07-02',
+                        cluster: 'Power Cluster'
+                    },
+                    {
+                        type: '특허',
+                        title: 'AI 특허 2건 집중 출원',
+                        importance: 60,
+                        count: '2건',
+                        category: 'AI',
+                        source: '특허청',
+                        date: '2026-07-01',
+                        cluster: 'AI Cluster'
+                    },
+                    {
+                        type: '입찰',
+                        title: '초대형 변압기 발주',
+                        importance: 80,
+                        buyer: '한국전력',
+                        item: '초대형 변압기',
+                        amount: '100억원',
+                        source: '나라장터',
+                        date: '2026-07-03',
+                        cluster: 'Power Cluster'
+                    },
+                    {
+                        type: '채용',
+                        title: 'AI 관련 8개 직무 동시 채용',
+                        importance: 40,
+                        company: '삼성',
+                        positions: '8개',
+                        category: 'AI',
+                        source: '채용 공고',
+                        date: '2026-07-03',
+                        cluster: 'AI Cluster'
+                    },
+                    {
+                        type: '입찰',
+                        title: 'GPU 칩 대량 발주',
+                        importance: 80,
+                        buyer: '삼성전자',
+                        item: 'GPU 칩',
+                        amount: '500억원',
+                        source: '나라장터',
+                        date: '2026-07-02',
+                        cluster: 'AI Cluster'
+                    },
+                    {
+                        type: '공시',
+                        title: 'SK하이닉스 15조 반도체 투자',
+                        importance: 90,
+                        company: 'SK하이닉스',
+                        category: '반도체',
+                        amount: '15조원',
+                        source: 'DART (한국거래소)',
+                        date: '2026-07-01',
+                        cluster: 'AI Cluster'
+                    },
+                    {
+                        type: '공시',
+                        title: '한국전력 8조 전력 투자',
+                        importance: 90,
+                        company: '한국전력',
+                        category: '전력',
+                        amount: '8조원',
+                        source: 'DART (한국거래소)',
+                        date: '2026-06-30',
+                        cluster: 'Power Cluster'
+                    },
                 ];
 
                 container.innerHTML = events.map(e => `
-                    <div class="event-card">
-                        <span class="event-type">${e.type}</span>
-                        <div class="event-title">${e.title}</div>
-                        <div class="event-importance">중요도: ${e.importance}/100</div>
-                        <div class="importance-bar" style="width: ${e.importance}%"></div>
+                    <div class="event-card" style="padding: 16px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                            <span class="event-type" style="display: inline-block; background: #e8eaf6; color: #3f51b5; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 600;">${e.type}</span>
+                            <div style="background: linear-gradient(90deg, ${e.importance > 80 ? '#ff6b6b' : e.importance > 60 ? '#ffd700' : '#90ee90'}, ${e.importance > 80 ? '#c92a2a' : e.importance > 60 ? '#ff8c00' : '#32cd32'}); color: white; padding: 4px 8px; border-radius: 3px; font-size: 11px; font-weight: 600;">${e.importance}</div>
+                        </div>
+                        <div class="event-title" style="font-size: 13px; color: #333; line-height: 1.5; margin-bottom: 12px; font-weight: 500;">${e.title}</div>
+
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 12px; color: #555; line-height: 1.6;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                ${e.company ? `<div><strong>기업:</strong> ${e.company}</div>` : ''}
+                                ${e.agency ? `<div><strong>기관:</strong> ${e.agency}</div>` : ''}
+                                ${e.category ? `<div><strong>분야:</strong> ${e.category}</div>` : ''}
+                                ${e.amount ? `<div><strong>규모:</strong> ${e.amount}</div>` : ''}
+                                ${e.item ? `<div><strong>항목:</strong> ${e.item}</div>` : ''}
+                                ${e.count ? `<div><strong>건수:</strong> ${e.count}</div>` : ''}
+                                ${e.positions ? `<div><strong>직무:</strong> ${e.positions}</div>` : ''}
+                                <div><strong>출처:</strong> ${e.source}</div>
+                            </div>
+                            <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #ddd;">
+                                <div style="font-size: 11px; color: #888;">📅 ${e.date} | 📍 ${e.cluster}</div>
+                            </div>
+                        </div>
+
+                        <div class="importance-bar" style="width: ${e.importance}%; background: linear-gradient(90deg, #667eea, #764ba2); height: 4px; border-radius: 2px;"></div>
                     </div>
                 `).join('');
             } catch (e) {

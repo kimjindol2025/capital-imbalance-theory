@@ -11,6 +11,8 @@ import json
 from pathlib import Path
 from datetime import datetime
 import pandas as pd
+import subprocess
+import threading
 
 app = FastAPI()
 
@@ -79,6 +81,55 @@ async def get_logs():
         with open(log_file) as f:
             return json.load(f)
     return {"error": "No logs", "message": "Run save_logs.py first"}
+
+@app.post("/api/run-phases")
+async def run_phases():
+    """Phase 1-3 실행 (백그라운드)"""
+    def execute_phases():
+        try:
+            # Phase 1: 1000개 수집
+            subprocess.run(
+                ["python3", "collect_thousand_articles.py"],
+                cwd=Path.cwd(),
+                capture_output=True,
+                timeout=300
+            )
+
+            # Phase 2: 통계 분석
+            subprocess.run(
+                ["python3", "analyze_today.py"],
+                cwd=Path.cwd(),
+                capture_output=True,
+                timeout=60
+            )
+
+            # Phase 3: 주간 리포트
+            subprocess.run(
+                ["python3", "report_weekly.py"],
+                cwd=Path.cwd(),
+                capture_output=True,
+                timeout=60
+            )
+
+            # 로그 저장
+            subprocess.run(
+                ["python3", "save_logs.py"],
+                cwd=Path.cwd(),
+                capture_output=True,
+                timeout=60
+            )
+        except Exception as e:
+            print(f"❌ 실행 오류: {e}")
+
+    # 백그라운드에서 실행
+    thread = threading.Thread(target=execute_phases)
+    thread.start()
+
+    return {
+        "status": "✅ 실행 시작",
+        "message": "Phase 1-3 백그라운드 실행 중",
+        "timestamp": datetime.now().isoformat()
+    }
 
 @app.get("/")
 async def serve_dashboard():

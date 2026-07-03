@@ -65,6 +65,15 @@ async def get_report():
             return json.load(f)
     return {"error": "No report"}
 
+@app.get("/api/logs")
+async def get_logs():
+    """실행 로그"""
+    log_file = RESULTS_DIR / "execution_logs.json"
+    if log_file.exists():
+        with open(log_file) as f:
+            return json.load(f)
+    return {"error": "No logs", "message": "Run save_logs.py first"}
+
 @app.get("/")
 async def serve_dashboard():
     """메인 대시보드"""

@@ -262,6 +262,14 @@
             </div>
         </div>
 
+        <!-- 실행 로그 -->
+        <div class="card" style="margin-bottom: 30px;">
+            <div class="card-title">📜 실행 로그</div>
+            <div id="logs-content" style="background: #f5f5f5; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 12px; line-height: 1.6; max-height: 400px; overflow-y: auto;">
+                <p style="color: #999;">⏳ 로그 로드 중...</p>
+            </div>
+        </div>
+
         <!-- 푸터 -->
         <footer>
             <p>🤖 Capital Imbalance Engine v1.0</p>
@@ -423,10 +431,44 @@
             }
         }
 
+        async function loadLogs() {
+            try {
+                const response = await fetch('/api/logs');
+                const data = await response.json();
+
+                if (data.error) {
+                    document.getElementById('logs-content').innerHTML =
+                        '<span style="color: #999;">📜 로그 없음 (save_logs.py 실행 필요)</span>';
+                    return;
+                }
+
+                let logsHtml = '';
+                logsHtml += `<div style="color: #666; margin-bottom: 10px;">📅 ${new Date(data.timestamp).toLocaleString('ko-KR')}</div>`;
+
+                for (const [phase_key, phase_data] of Object.entries(data.phases || {})) {
+                    logsHtml += `<div style="margin: 10px 0; padding: 10px; background: white; border-left: 3px solid #2a5298; border-radius: 3px;">`;
+                    logsHtml += `<strong>${phase_data.name}</strong><br>`;
+                    logsHtml += `상태: ${phase_data.status}<br>`;
+                    if (phase_data.output) {
+                        const preview = phase_data.output.split('\n').slice(0, 3).join('<br>');
+                        logsHtml += `<span style="color: #999; font-size: 11px;">${preview}...</span>`;
+                    }
+                    logsHtml += `</div>`;
+                }
+
+                document.getElementById('logs-content').innerHTML = logsHtml;
+            } catch (error) {
+                console.log('⚠️ 로그 로드 실패:', error);
+                document.getElementById('logs-content').innerHTML =
+                    '<span style="color: #999;">❌ 로그 로드 실패</span>';
+            }
+        }
+
         // 페이지 로드 시 실행
         console.log('🌐 Capital Imbalance Engine 대시보드 시작');
         loadData();
         loadReport();
+        loadLogs();
 
         // 5초마다 갱신
         setInterval(() => {
@@ -434,6 +476,11 @@
             loadData();
             loadReport();
         }, 5000);
+
+        // 로그는 10초마다 갱신
+        setInterval(() => {
+            loadLogs();
+        }, 10000);
 
         // 추가 디버깅: 1초 후 한 번 더
         setTimeout(() => {

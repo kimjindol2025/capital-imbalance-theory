@@ -332,6 +332,41 @@
             </div>
         </header>
 
+        <!-- 💧 Reservoir 감지 (가장 중요!) -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);">
+            <div style="font-size: 20px; font-weight: bold; margin-bottom: 20px;">💧 감지된 Reservoir (자본 집중 지점)</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;" id="reservoirs-display">
+                <!-- 동적으로 로드됨 -->
+                <div style="background: rgba(255,255,255,0.15); padding: 18px; border-radius: 8px; border-left: 4px solid #ffd700;">
+                    <div style="font-weight: bold; font-size: 16px;">🤖 AI</div>
+                    <div style="margin-top: 10px; font-size: 14px; line-height: 1.8;">
+                        <div>📊 Pressure: <strong>660</strong></div>
+                        <div>📡 Signal: <strong>8개</strong></div>
+                        <div>⭐ Confidence: <strong>100%</strong></div>
+                        <div style="margin-top: 10px; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; font-size: 12px;">AI 자본 대량 집중</div>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); padding: 18px; border-radius: 8px; border-left: 4px solid #87ceeb;">
+                    <div style="font-weight: bold; font-size: 16px;">⚡ Power</div>
+                    <div style="margin-top: 10px; font-size: 14px; line-height: 1.8;">
+                        <div>📊 Pressure: <strong>540</strong></div>
+                        <div>📡 Signal: <strong>6개</strong></div>
+                        <div>⭐ Confidence: <strong>100%</strong></div>
+                        <div style="margin-top: 10px; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; font-size: 12px;">전력 인프라 대규모 확충</div>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); padding: 18px; border-radius: 8px; border-left: 4px solid #90ee90;">
+                    <div style="font-weight: bold; font-size: 16px;">🔋 Energy</div>
+                    <div style="margin-top: 10px; font-size: 14px; line-height: 1.8;">
+                        <div>📊 Pressure: <strong>340</strong></div>
+                        <div>📡 Signal: <strong>4개</strong></div>
+                        <div>⭐ Confidence: <strong>68%</strong></div>
+                        <div style="margin-top: 10px; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; font-size: 12px;">배터리/에너지 투자 증가</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 센서 신호 요약 -->
         <div class="grid">
             <div class="card">

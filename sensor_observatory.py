@@ -256,6 +256,62 @@ class SensorObservatory:
 
         return pressure
 
+    def detect_reservoirs(self, pressure):
+        """Reservoir 감지 (Pressure가 높은 지점)"""
+        print("\n\n💧 Reservoir Detection")
+        print("=" * 60)
+
+        reservoirs = []
+
+        # Pressure 강도 기준으로 Reservoir 판정
+        for category, p in pressure.items():
+            total_importance = p["total_importance"]
+            count = p["count"]
+            status = p["status"]
+
+            # Reservoir 조건: Importance > 300 AND Count > 2
+            if total_importance >= 300 and count >= 2:
+                reservoir = {
+                    "name": category,
+                    "pressure": total_importance,
+                    "signals": count,
+                    "importance": p["average_importance"],
+                    "status": status,
+                    "confidence": min(100, (total_importance / 500) * 100),  # 신뢰도 (%)
+                    "description": self._describe_reservoir(category, p)
+                }
+                reservoirs.append(reservoir)
+
+        # Pressure 높은 순서로 정렬
+        reservoirs.sort(key=lambda x: x["pressure"], reverse=True)
+
+        for r in reservoirs:
+            print(f"✅ Reservoir: {r['name']}")
+            print(f"   Pressure: {r['pressure']} | Signals: {r['signals']} | Status: {r['status']}")
+            print(f"   Confidence: {r['confidence']:.1f}% | Description: {r['description']}")
+
+        return reservoirs
+
+    def _describe_reservoir(self, category, pressure):
+        """Reservoir 설명"""
+        status = pressure["status"]
+        importance = pressure["total_importance"]
+
+        if category == "AI":
+            if importance > 700:
+                return "AI 자본 대량 집중 → 초고강도 저수지"
+            else:
+                return "AI 기술 투자 증가 → 고강도 저수지"
+        elif category == "Power":
+            if importance > 700:
+                return "전력 인프라 대규모 확충 → 초고강도 저수지"
+            else:
+                return "에너지 전환 신호 → 고강도 저수지"
+        elif category == "Energy":
+            return "배터리/에너지 저장 집중 투자 → 고강도 저수지"
+        else:
+            return "새로운 기술/산업 신호"
+
     def generate_report(self):
         """최종 보고서"""
         print("\n\n📊 Sensor Observatory Daily Report")
@@ -289,6 +345,19 @@ class SensorObservatory:
         for category in sorted(pressure.keys(), key=lambda x: pressure[x]["total_importance"], reverse=True):
             p = pressure[category]
             print(f"  {category:10} | Count: {p['count']:2} | Importance: {p['total_importance']:3} | Status: {p['status']}")
+
+        # Reservoir 감지
+        reservoirs = self.detect_reservoirs(pressure)
+
+        print(f"\n\n💎 Reservoir Summary:")
+        print(f"{'─' * 60}")
+        print(f"감지된 Reservoir: {len(reservoirs)}개")
+        for i, r in enumerate(reservoirs, 1):
+            print(f"\n{i}. {r['name']} Reservoir")
+            print(f"   📊 Pressure: {r['pressure']:.0f} (강도)")
+            print(f"   📡 Signals: {r['signals']}개")
+            print(f"   ⭐ Confidence: {r['confidence']:.1f}%")
+            print(f"   📝 Status: {r['status']}")
 
     def save_results(self):
         """결과 저장"""
@@ -328,11 +397,58 @@ class SensorObservatory:
         # Flow Event 감지
         categories = self.detect_flow_events()
 
+        # Pressure 계산 및 Reservoir 감지
+        pressure = self.calculate_pressure(categories)
+        reservoirs = self.detect_reservoirs(pressure)
+
         # 보고서 생성
         self.generate_report()
 
-        # 결과 저장
-        self.save_results()
+        # 결과 저장 (reservoirs 포함)
+        self.save_results_with_reservoirs(reservoirs, pressure)
+
+    def save_results_with_reservoirs(self, reservoirs, pressure):
+        """Reservoir 정보를 포함한 결과 저장"""
+        results = {
+            "timestamp": self.timestamp,
+            "sensors": {
+                "total_signals": sum([len(v) for v in self.sensors.values()]),
+                "by_sensor": {k: len(v) for k, v in self.sensors.items()}
+            },
+            "flow_events": {
+                "total": len(self.flow_events),
+                "events": self.flow_events
+            },
+            "pressure": {
+                k: {
+                    "count": v["count"],
+                    "total_importance": v["total_importance"],
+                    "average_importance": v["average_importance"],
+                    "status": v["status"]
+                }
+                for k, v in pressure.items()
+            },
+            "reservoirs": {
+                "total": len(reservoirs),
+                "detected": [
+                    {
+                        "name": r["name"],
+                        "pressure": r["pressure"],
+                        "signals": r["signals"],
+                        "confidence": r["confidence"],
+                        "status": r["status"],
+                        "description": r["description"]
+                    }
+                    for r in reservoirs
+                ]
+            }
+        }
+
+        output_file = Path("results/sensor_observatory_report.json")
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+
+        print(f"\n✅ 결과 저장: {output_file}")
 
 if __name__ == "__main__":
     observatory = SensorObservatory()

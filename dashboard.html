@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capital Imbalance Engine - 실시간 대시보드</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -274,28 +274,42 @@
 
         async function loadData() {
             try {
+                console.log('📡 데이터 로드 중...');
                 const response = await fetch('/api/stats');
                 const data = await response.json();
 
+                console.log('📦 받은 데이터:', data);
+
                 if (data.error) {
-                    console.log('데이터 로드 중:', data.error);
+                    console.log('❌ 에러:', data.error);
+                    document.getElementById('update-time').textContent = '수집 중...';
                     return;
                 }
 
                 // 불균형 데이터
                 const imbalance = data.imbalance;
+                console.log('📊 불균형:', imbalance);
 
                 // 카드 업데이트
-                document.querySelectorAll('.card').forEach((card, idx) => {
-                    const categories = ['AI', 'Power', 'Water', 'Shipping', 'Food'];
-                    if (idx < 5) {
-                        const cat = categories[idx];
-                        const value = imbalance[cat] || 0;
-                        card.querySelector('.card-value').textContent = value.toFixed(1) + '%';
-                    }
-                });
+                const cards = document.querySelectorAll('.grid .card');
+                const categories = ['AI', 'Power', 'Water', 'Shipping', 'Food'];
 
-                document.getElementById('total-count').textContent = data.total_articles;
+                for (let i = 0; i < Math.min(categories.length, cards.length); i++) {
+                    const card = cards[i];
+                    const cat = categories[i];
+                    const value = imbalance[cat] || 0;
+                    const valueEl = card.querySelector('.card-value');
+                    if (valueEl) {
+                        valueEl.textContent = value.toFixed(1) + '%';
+                    }
+                }
+
+                // Total 업데이트
+                const totalEl = document.getElementById('total-count');
+                if (totalEl) {
+                    totalEl.textContent = data.total_articles;
+                }
+
                 document.getElementById('ai-percent').textContent = imbalance.AI.toFixed(1) + '%';
                 document.getElementById('power-percent').textContent = imbalance.Power.toFixed(1) + '%';
 
@@ -306,31 +320,42 @@
                 // 불균형 경고
                 let alertHtml = '';
                 if (imbalance.AI > 50) {
-                    alertHtml += '<div class="alert critical">🔴 AI/GPU 극도 과열 (75%+)</div>';
+                    alertHtml += '<div class="alert critical">🔴 AI/GPU 극도 과열 (' + imbalance.AI.toFixed(1) + '%)</div>';
                 }
-                if (imbalance.Power < 5 && imbalance.Power > 0) {
-                    alertHtml += '<div class="alert warning">🟠 Power/Energy 극심 저평가 (0.2%)</div>';
+                if (imbalance.Power > 0 && imbalance.Power < 5) {
+                    alertHtml += '<div class="alert warning">🟠 Power/Energy 극심 저평가 (' + imbalance.Power.toFixed(1) + '%)</div>';
+                } else if (imbalance.Power === 0) {
+                    alertHtml += '<div class="alert warning">🟠 Power/Energy 관심도 0% ⚠️</div>';
                 }
                 if (!alertHtml) {
-                    alertHtml = '<div class="alert info">🟢 정상 상태 - 추가 분석 필요 없음</div>';
+                    alertHtml = '<div class="alert info">🟢 정상 상태</div>';
                 }
                 document.getElementById('imbalance-alert').innerHTML = alertHtml;
 
                 // 차트 업데이트
-                updateChart(imbalance);
+                if (document.getElementById('imbalance-chart')) {
+                    updateChart(imbalance);
+                }
 
                 // 시간 업데이트
                 const now = new Date();
                 document.getElementById('update-time').textContent =
                     `마지막 갱신: ${now.toLocaleTimeString('ko-KR')}`;
 
+                console.log('✅ 데이터 로드 완료');
+
             } catch (error) {
-                console.error('데이터 로드 실패:', error);
+                console.error('❌ 데이터 로드 실패:', error);
+                document.getElementById('update-time').textContent = '❌ 연결 오류';
             }
         }
 
         function updateChart(imbalance) {
             const ctx = document.getElementById('imbalance-chart');
+            if (!ctx) {
+                console.log('⚠️ 차트 요소 없음');
+                return;
+            }
 
             if (imbalanceChart) {
                 imbalanceChart.destroy();
@@ -373,6 +398,7 @@
                     }
                 }
             });
+            console.log('📈 차트 업데이트 완료');
         }
 
         async function loadReport() {
@@ -382,38 +408,34 @@
 
                 let reportHtml = '';
                 if (data.ai_trigger) {
-                    reportHtml = `
-                        <div style="background: #fff3e0; padding: 10px; border-radius: 5px; border-left: 4px solid #e65100;">
-                            <strong>⚠️ AI 분석 필요</strong><br>
-                            사유: ${data.reason}
-                        </div>
-                    `;
+                    reportHtml = `<div style="background: #fff3e0; padding: 10px; border-radius: 5px; border-left: 4px solid #e65100;"><strong>⚠️ AI 분석 필요</strong><br>사유: ${data.reason}</div>`;
                 } else {
-                    reportHtml = `
-                        <div style="background: #e3f2fd; padding: 10px; border-radius: 5px; border-left: 4px solid #1565c0;">
-                            <strong>✅ 정상 상태</strong><br>
-                            다음: 내일 같은 시간에 재확인
-                        </div>
-                    `;
+                    reportHtml = `<div style="background: #e3f2fd; padding: 10px; border-radius: 5px; border-left: 4px solid #1565c0;"><strong>✅ 정상 상태</strong><br>다음: 내일 같은 시간에 재확인</div>`;
                 }
 
                 document.getElementById('report-content').innerHTML = reportHtml;
             } catch (error) {
-                console.log('리포트 로드 중...');
+                console.log('⚠️ 리포트 로드 실패:', error);
             }
         }
 
-        // 초기 로드 및 자동 갱신
+        // 페이지 로드 시 실행
+        console.log('🌐 Capital Imbalance Engine 대시보드 시작');
         loadData();
         loadReport();
 
+        // 5초마다 갱신
         setInterval(() => {
+            console.log('🔄 자동 갱신 중...');
             loadData();
             loadReport();
-        }, 5000); // 5초마다 갱신
+        }, 5000);
 
-        // 페이지 로드 시 1번 더 실행
-        setTimeout(loadData, 1000);
+        // 추가 디버깅: 1초 후 한 번 더
+        setTimeout(() => {
+            console.log('🔄 1초 후 추가 갱신');
+            loadData();
+        }, 1000);
     </script>
 </body>
 </html>

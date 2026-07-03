@@ -1,0 +1,474 @@
+[
+  {
+    "date": "2023-01-15",
+    "source": "전자신문",
+    "event_type": "news",
+    "title": "ChatGPT 열풍에 GPU 품귀 심화",
+    "description": "전자신문: ChatGPT 열풍에 GPU 품귀 심화",
+    "keywords": [
+      "GPU",
+      "부족",
+      "가격상승"
+    ],
+    "pressure_potential": 50
+  },
+  {
+    "date": "2023-06-20",
+    "source": "반도체신문",
+    "event_type": "news",
+    "title": "HBM, 신GPU의 메모리 병목 극복 핵심",
+    "description": "반도체신문: HBM, 신GPU의 메모리 병목 극복 핵심",
+    "keywords": [
+      "HBM",
+      "메모리",
+      "병목"
+    ],
+    "pressure_potential": 50
+  },
+  {
+    "date": "2023-Q1",
+    "source": "SEMI",
+    "event_type": "statistic",
+    "metric": "GPU_Shipment",
+    "value": 5.2,
+    "title": "GPU 출하량",
+    "description": "SEMI: GPU 출하량 = 5.2",
+    "pressure_potential": 0.52
+  },
+  {
+    "date": "2023-Q2",
+    "source": "SEMI",
+    "event_type": "statistic",
+    "metric": "HBM_Demand",
+    "value": 12.8,
+    "title": "HBM 수요",
+    "description": "SEMI: HBM 수요 = 12.8",
+    "pressure_potential": 1.28
+  },
+  {
+    "date": "20230131",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2500$ per unit)",
+    "description": "GPU 가격: 2500$ (Pressure: 50)",
+    "pressure_potential": 50
+  },
+  {
+    "date": "20230228",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (3000$ per unit)",
+    "description": "GPU 가격: 3000$ (Pressure: 60)",
+    "pressure_potential": 60
+  },
+  {
+    "date": "20230331",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (3500$ per unit)",
+    "description": "GPU 가격: 3500$ (Pressure: 70)",
+    "pressure_potential": 70
+  },
+  {
+    "date": "20230430",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4000$ per unit)",
+    "description": "GPU 가격: 4000$ (Pressure: 80)",
+    "pressure_potential": 80
+  },
+  {
+    "date": "20230531",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4500$ per unit)",
+    "description": "GPU 가격: 4500$ (Pressure: 90)",
+    "pressure_potential": 90
+  },
+  {
+    "date": "20230630",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (5200$ per unit)",
+    "description": "GPU 가격: 5200$ (Pressure: 80)",
+    "pressure_potential": 80
+  },
+  {
+    "date": "20230731",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (5000$ per unit)",
+    "description": "GPU 가격: 5000$ (Pressure: 85)",
+    "pressure_potential": 85
+  },
+  {
+    "date": "20230831",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4800$ per unit)",
+    "description": "GPU 가격: 4800$ (Pressure: 90)",
+    "pressure_potential": 90
+  },
+  {
+    "date": "20230930",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4600$ per unit)",
+    "description": "GPU 가격: 4600$ (Pressure: 95)",
+    "pressure_potential": 95
+  },
+  {
+    "date": "20231031",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4400$ per unit)",
+    "description": "GPU 가격: 4400$ (Pressure: 100)",
+    "pressure_potential": 100
+  },
+  {
+    "date": "20231130",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4200$ per unit)",
+    "description": "GPU 가격: 4200$ (Pressure: 105)",
+    "pressure_potential": 105
+  },
+  {
+    "date": "20231231",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (4000$ per unit)",
+    "description": "GPU 가격: 4000$ (Pressure: 80)",
+    "pressure_potential": 80
+  },
+  {
+    "date": "2024-01-15",
+    "source": "전자신문",
+    "event_type": "news",
+    "title": "SK하이닉스, HBM 생산 능력 50% 확대",
+    "description": "전자신문: SK하이닉스, HBM 생산 능력 50% 확대",
+    "keywords": [
+      "SK하이닉스",
+      "HBM",
+      "증설"
+    ],
+    "pressure_potential": 50
+  },
+  {
+    "date": "2024-Q1",
+    "source": "IDC",
+    "event_type": "statistic",
+    "metric": "Datacenter_Spending",
+    "value": 28.5,
+    "title": "데이터센터 투자",
+    "description": "IDC: 데이터센터 투자 = 28.5",
+    "pressure_potential": 2.85
+  },
+  {
+    "date": "20240115",
+    "source": "DART",
+    "company": "SK하이닉스",
+    "event_type": "major_investment",
+    "title": "HBM 증설 계획 공시",
+    "description": "SK하이닉스 - HBM 증설 계획 공시",
+    "pressure_potential": 60
+  },
+  {
+    "date": "20240115",
+    "source": "DART",
+    "company": "삼성전자",
+    "event_type": "major_investment",
+    "title": "HBM 증설 계획 공시",
+    "description": "삼성전자 - HBM 증설 계획 공시",
+    "pressure_potential": 60
+  },
+  {
+    "date": "20240115",
+    "source": "DART",
+    "company": "Micron",
+    "event_type": "major_investment",
+    "title": "HBM 증설 계획 공시",
+    "description": "Micron - HBM 증설 계획 공시",
+    "pressure_potential": 60
+  },
+  {
+    "date": "20240131",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2900$ per unit)",
+    "description": "GPU 가격: 2900$ (Pressure: 47)",
+    "pressure_potential": 47
+  },
+  {
+    "date": "20240229",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2800$ per unit)",
+    "description": "GPU 가격: 2800$ (Pressure: 44)",
+    "pressure_potential": 44
+  },
+  {
+    "date": "20240331",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2700$ per unit)",
+    "description": "GPU 가격: 2700$ (Pressure: 41)",
+    "pressure_potential": 41
+  },
+  {
+    "date": "20240430",
+    "source": "DART",
+    "company": "SK하이닉스",
+    "event_type": "financial_report",
+    "title": "분기실적 보고",
+    "description": "SK하이닉스 - 분기실적 보고",
+    "pressure_potential": 30
+  },
+  {
+    "date": "20240430",
+    "source": "DART",
+    "company": "삼성전자",
+    "event_type": "financial_report",
+    "title": "분기실적 보고",
+    "description": "삼성전자 - 분기실적 보고",
+    "pressure_potential": 30
+  },
+  {
+    "date": "20240430",
+    "source": "DART",
+    "company": "Micron",
+    "event_type": "financial_report",
+    "title": "분기실적 보고",
+    "description": "Micron - 분기실적 보고",
+    "pressure_potential": 30
+  },
+  {
+    "date": "20240430",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2600$ per unit)",
+    "description": "GPU 가격: 2600$ (Pressure: 38)",
+    "pressure_potential": 38
+  },
+  {
+    "date": "20240531",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2500$ per unit)",
+    "description": "GPU 가격: 2500$ (Pressure: 35)",
+    "pressure_potential": 35
+  },
+  {
+    "date": "20240630",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2400$ per unit)",
+    "description": "GPU 가격: 2400$ (Pressure: 32)",
+    "pressure_potential": 32
+  },
+  {
+    "date": "20240731",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2300$ per unit)",
+    "description": "GPU 가격: 2300$ (Pressure: 29)",
+    "pressure_potential": 29
+  },
+  {
+    "date": "20240831",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2200$ per unit)",
+    "description": "GPU 가격: 2200$ (Pressure: 26)",
+    "pressure_potential": 26
+  },
+  {
+    "date": "20240930",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2100$ per unit)",
+    "description": "GPU 가격: 2100$ (Pressure: 23)",
+    "pressure_potential": 23
+  },
+  {
+    "date": "20241031",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (2000$ per unit)",
+    "description": "GPU 가격: 2000$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20241130",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1900$ per unit)",
+    "description": "GPU 가격: 1900$ (Pressure: 17)",
+    "pressure_potential": 17
+  },
+  {
+    "date": "20241231",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1800$ per unit)",
+    "description": "GPU 가격: 1800$ (Pressure: 14)",
+    "pressure_potential": 14
+  },
+  {
+    "date": "2025-06-10",
+    "source": "디지털데일리",
+    "event_type": "news",
+    "title": "AI 데이터센터 전력부족 새 병목으로",
+    "description": "디지털데일리: AI 데이터센터 전력부족 새 병목으로",
+    "keywords": [
+      "전력",
+      "데이터센터",
+      "부하"
+    ],
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250131",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250228",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250331",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250430",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250531",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250630",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250731",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250831",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20250930",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20251031",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20251130",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20251231",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260131",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260228",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260331",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260430",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260531",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  },
+  {
+    "date": "20260630",
+    "source": "GPU_Market",
+    "event_type": "price_signal",
+    "title": "GPU 가격 신호 (1500$ per unit)",
+    "description": "GPU 가격: 1500$ (Pressure: 20)",
+    "pressure_potential": 20
+  }
+]

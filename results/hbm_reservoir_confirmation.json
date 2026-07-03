@@ -1,0 +1,13 @@
+{
+  "reservoir_name": "HBM",
+  "engine_detection_date": 20230531.0,
+  "engine_pressure": 50.0580826019176,
+  "market_consensus_date": "20230915",
+  "press_consensus_date": "20231020",
+  "lead_time_vs_market_days": null,
+  "lead_time_vs_press_days": null,
+  "ground_truth_satisfied": 5,
+  "ground_truth_total": 5,
+  "confidence": 0.92,
+  "status": "CONFIRMED"
+}

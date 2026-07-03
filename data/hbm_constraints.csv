@@ -1,0 +1,19 @@
+date,constraint_type,constraint_title,strength,evidence
+2023-06-20,technology,HBM 메모리 병목,80,"HBM, 신GPU의 메모리 병목 극복 핵심"
+2023-Q1,supply,GPU 출하량 증가 → 수요 높음,52,출하량: 5.2 백만개
+2023-Q2,supply,HBM 수요 급증,64,수요: 12.8
+20230228,supply,GPU 공급 부족,60,GPU 가격: GPU 가격: 3000$ (Pressure: 60)
+20230331,supply,GPU 공급 부족,70,GPU 가격: GPU 가격: 3500$ (Pressure: 70)
+20230430,supply,GPU 공급 부족,80,GPU 가격: GPU 가격: 4000$ (Pressure: 80)
+20230531,supply,GPU 공급 부족,90,GPU 가격: GPU 가격: 4500$ (Pressure: 90)
+20230630,supply,GPU 공급 부족,80,GPU 가격: GPU 가격: 5200$ (Pressure: 80)
+20230731,supply,GPU 공급 부족,85,GPU 가격: GPU 가격: 5000$ (Pressure: 85)
+20230831,supply,GPU 공급 부족,90,GPU 가격: GPU 가격: 4800$ (Pressure: 90)
+20230930,supply,GPU 공급 부족,95,GPU 가격: GPU 가격: 4600$ (Pressure: 95)
+20231031,supply,GPU 공급 부족,100,GPU 가격: GPU 가격: 4400$ (Pressure: 100)
+20231130,supply,GPU 공급 부족,100,GPU 가격: GPU 가격: 4200$ (Pressure: 105)
+20231231,supply,GPU 공급 부족,80,GPU 가격: GPU 가격: 4000$ (Pressure: 80)
+2024-01-15,capacity,생산능력 확충 필요,75,"SK하이닉스, HBM 생산 능력 50% 확대"
+2024-Q1,capacity,데이터센터 용량 확충 필요,5,투자: $28.5B
+20240115,supply,HBM 공급 부족,70,HBM 증설 계획 공시
+2025-06-10,supply,전체 공급 부족,70,AI 데이터센터 전력부족 새 병목으로

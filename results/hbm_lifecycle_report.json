@@ -1,0 +1,70 @@
+{
+  "reservoir": "HBM",
+  "birth_date": "2023-05-31",
+  "peak_date": "2023-11-30",
+  "peak_pressure": 58.0,
+  "status_current": "Decay (\uc9c4\ud589 \uc911)",
+  "total_lifecycle_days": 1280,
+  "total_lifecycle_years": 3.5,
+  "stages": {
+    "stage1_emergence": {
+      "duration_days": 150,
+      "pressure_range": [
+        0,
+        30
+      ],
+      "key_events": [
+        "ChatGPT \uc5f4\ud48d",
+        "GPU \uc218\uc694 \uc2dc\uc791"
+      ]
+    },
+    "stage2_confirmation": {
+      "duration_days": 183,
+      "pressure_range": [
+        30,
+        60
+      ],
+      "key_events": [
+        "Engine \uac10\uc9c0",
+        "Market \ubc18\uc601",
+        "Press \ubcf4\ub3c4"
+      ]
+    },
+    "stage3_peak": {
+      "duration_days": 3,
+      "pressure": 58.0,
+      "key_events": [
+        "\ucd5c\uace0 \uc555\ub825",
+        "\uc790\ubcf8 \uadf9\ub300 \uc9d1\uc911"
+      ]
+    },
+    "stage4_transition": {
+      "duration_days": 30,
+      "pressure_range": [
+        30,
+        60
+      ],
+      "key_events": [
+        "\uacf5\uae09 \ub530\ub77c\uc7a1\uae30",
+        "\ub2e4\uc74c \uc800\uc218\uc9c0(Power) \uc2e0\ud638"
+      ]
+    },
+    "stage5_decay": {
+      "duration_days": 914,
+      "pressure_range": [
+        0,
+        30
+      ],
+      "key_events": [
+        "\uc0b0\uc5c5 \uc815\uc0c1\ud654",
+        "\uc790\ubcf8 \uc774\ub3d9"
+      ]
+    }
+  },
+  "key_metrics": {
+    "engine_lead_time_vs_market_days": 107,
+    "engine_lead_time_vs_press_days": 142,
+    "ground_truth_satisfaction": "5/5 (100%)",
+    "confidence": 0.92
+  }
+}

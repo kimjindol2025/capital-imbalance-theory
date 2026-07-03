@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-07-03T13:28:36.597717",
+  "analysis": {
+    "AI": {
+      "avg": 20.0,
+      "max": 20.0,
+      "min": 20.0,
+      "change": 0.0,
+      "current": 20.0
+    },
+    "Power": {
+      "avg": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "change": 0.0,
+      "current": 0.0
+    },
+    "Water": {
+      "avg": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "change": 0.0,
+      "current": 0.0
+    },
+    "Shipping": {
+      "avg": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "change": 0.0,
+      "current": 0.0
+    },
+    "Food": {
+      "avg": 0.0,
+      "max": 0.0,
+      "min": 0.0,
+      "change": 0.0,
+      "current": 0.0
+    }
+  },
+  "ai_trigger": false,
+  "reason": "\ud604\uc7ac \ud2b8\ub9ac\uac70 \uc870\uac74 \ubbf8\ub9cc"
+}

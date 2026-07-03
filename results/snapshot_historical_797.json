@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-03T13:48:28.562833",
+  "current": {
+    "date": "2026-07-03",
+    "AI": 686,
+    "Power": 2,
+    "Semiconductors": 13,
+    "Water": 14,
+    "Food": 10,
+    "Shipping": 72
+  },
+  "total_articles": 797,
+  "imbalance": {
+    "AI": 75.6,
+    "Power": 0.2,
+    "Semiconductors": 1.4,
+    "Water": 1.8,
+    "Food": 1.2,
+    "Shipping": 9.8
+  },
+  "source": "Historical Analysis (797 articles)"
+}

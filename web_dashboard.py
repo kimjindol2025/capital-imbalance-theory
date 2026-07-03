@@ -20,9 +20,15 @@ RESULTS_DIR = Path("results")
 
 @app.get("/api/stats")
 async def get_stats():
-    """현재 통계"""
-    stats_file = DATA_DIR / "daily_stats.csv"
+    """현재 통계 (797건 이전 데이터 우선 사용)"""
+    # 먼저 이전 데이터 확인
+    snapshot_historical = RESULTS_DIR / "snapshot_historical_797.json"
+    if snapshot_historical.exists():
+        with open(snapshot_historical) as f:
+            return json.load(f)
 
+    # 없으면 일일 데이터 사용
+    stats_file = DATA_DIR / "daily_stats.csv"
     if stats_file.exists():
         df = pd.read_csv(stats_file)
         latest = df.iloc[-1].to_dict()

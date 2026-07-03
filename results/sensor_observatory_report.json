@@ -1,0 +1,139 @@
+{
+  "timestamp": "2026-07-03T16:59:08.691943",
+  "sensors": {
+    "total_signals": 21,
+    "by_sensor": {
+      "news": 0,
+      "corporate_disclosure": 5,
+      "government": 2,
+      "patent": 5,
+      "recruitment": 6,
+      "procurement": 3
+    }
+  },
+  "flow_events": {
+    "total": 20,
+    "events": [
+      {
+        "type": "공시",
+        "title": "삼성전자 20조 AI 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "SK하이닉스 15조 반도체 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "한국전력 8조 전력 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "LG에너지솔루션 12조 배터리 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "정부",
+        "title": "K-AI 전략 발표",
+        "importance": 100,
+        "sensor": "government"
+      },
+      {
+        "type": "정부",
+        "title": "탄소중립 전력망 투자",
+        "importance": 100,
+        "sensor": "government"
+      },
+      {
+        "type": "특허",
+        "title": "AI 특허 2건 집중 출원",
+        "importance": 60,
+        "sensor": "patent"
+      },
+      {
+        "type": "입찰",
+        "title": "한국전력 초대형 변압기 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      },
+      {
+        "type": "입찰",
+        "title": "삼성전자 GPU 칩 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      },
+      {
+        "type": "입찰",
+        "title": "LG 배터리 재료 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      },
+      {
+        "type": "공시",
+        "title": "삼성전자 20조 AI 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "SK하이닉스 15조 반도체 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "한국전력 8조 전력 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "공시",
+        "title": "LG에너지솔루션 12조 배터리 투자",
+        "importance": 90,
+        "sensor": "corporate_disclosure"
+      },
+      {
+        "type": "정부",
+        "title": "K-AI 전략 발표",
+        "importance": 100,
+        "sensor": "government"
+      },
+      {
+        "type": "정부",
+        "title": "탄소중립 전력망 투자",
+        "importance": 100,
+        "sensor": "government"
+      },
+      {
+        "type": "특허",
+        "title": "AI 특허 2건 집중 출원",
+        "importance": 60,
+        "sensor": "patent"
+      },
+      {
+        "type": "입찰",
+        "title": "한국전력 초대형 변압기 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      },
+      {
+        "type": "입찰",
+        "title": "삼성전자 GPU 칩 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      },
+      {
+        "type": "입찰",
+        "title": "LG 배터리 재료 발주",
+        "importance": 80,
+        "sensor": "procurement"
+      }
+    ]
+  }
+}

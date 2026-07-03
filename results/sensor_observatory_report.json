@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-07-03T17:36:51.198441",
+  "timestamp": "2026-07-03T19:07:12.034659",
   "sensors": {
-    "total_signals": 21,
+    "total_signals": 24,
     "by_sensor": {
-      "news": 0,
+      "news": 3,
       "corporate_disclosure": 5,
       "government": 2,
       "patent": 5,

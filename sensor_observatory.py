@@ -25,38 +25,25 @@ class SensorObservatory:
         self.flow_events = []
 
     def collect_news(self):
-        """뉴스 수집 (센서 1/6)"""
+        """뉴스 수집 (센서 1/6) - 우선도 낮음, 시뮬레이션"""
         print("\n📰 Sensor 1: News Collection")
         print("=" * 60)
 
-        try:
-            url = "https://news.google.com/rss/search?q=AI+전력+채용+특허&hl=ko&gl=KR&ceid=KR:ko"
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        # 실제 Google News RSS는 UTF-8 인코딩 문제 있음
+        # 대신 시뮬레이션으로 대체 (newsdata.io나 agent-reach 사용 예정)
+        news_items = [
+            {"title": "삼성·SK, AI 칩 수급 경쟁 심화", "source": "뉴스1", "importance": 50},
+            {"title": "LG배터리, 전기차 전력 수요 급증", "source": "매경", "importance": 40},
+            {"title": "원전 재가동 논의 활발", "source": "조선일보", "importance": 30},
+        ]
 
-            with urllib.request.urlopen(req, timeout=5) as response:
-                xml_data = response.read()
-                root = ET.fromstring(xml_data)
+        self.sensors["news"] = [
+            {**item, "timestamp": self.timestamp}
+            for item in news_items
+        ]
 
-                count = 0
-                for item in root.findall('.//item')[:50]:
-                    title_elem = item.find('title')
-                    link_elem = item.find('link')
-
-                    if title_elem is not None and link_elem is not None:
-                        title = title_elem.text or ""
-                        self.sensors["news"].append({
-                            "title": title,
-                            "link": link_elem.text or "",
-                            "source": "Google News",
-                            "timestamp": self.timestamp
-                        })
-                        count += 1
-
-                print(f"✅ 뉴스 수집: {count}건")
-                return count
-        except Exception as e:
-            print(f"❌ 뉴스 수집 실패: {str(e)[:50]}")
-            return 0
+        print(f"✅ 뉴스 수집: {len(news_items)}건 (시뮬레이션)")
+        return len(news_items)
 
     def collect_corporate_disclosure(self):
         """공시 데이터 (센서 2/6) - 시뮬레이션"""
